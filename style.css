@@ -1,0 +1,195 @@
+/* ===== RESET & BASE ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #000;
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+}
+
+/* ===== GLASSMORPHISM ===== */
+.glass {
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+
+.glass:hover {
+    border-color: rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px);
+}
+
+.glass-nav {
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* ===== GLOW EFFECTS ===== */
+.glow-green {
+    box-shadow: 0 0 30px rgba(0, 200, 150, 0.3), 0 0 60px rgba(0, 200, 150, 0.1);
+}
+
+.glow-red {
+    box-shadow: 0 0 20px rgba(255, 69, 0, 0.15);
+}
+
+.glow-red:hover {
+    box-shadow: 0 0 40px rgba(255, 69, 0, 0.3);
+}
+
+/* ===== BUTTON PULSE ===== */
+.btn-pulse {
+    animation: pulse-glow 2s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+
+    0%,
+    100% {
+        box-shadow: 0 0 20px rgba(0, 200, 150, 0.3);
+    }
+
+    50% {
+        box-shadow: 0 0 40px rgba(0, 200, 150, 0.5), 0 0 80px rgba(0, 200, 150, 0.2);
+    }
+}
+
+/* ===== SCROLL REVEAL ===== */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ===== HERO GLOW ORBS ===== */
+.hero-glow {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    filter: blur(120px);
+    opacity: 0.15;
+    pointer-events: none;
+}
+
+/* ===== FAQ ACCORDION ===== */
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.faq-answer.open {
+    max-height: 300px;
+}
+
+.faq-icon {
+    transition: transform 0.3s ease;
+}
+
+.faq-icon.rotated {
+    transform: rotate(45deg);
+}
+
+/* ===== SCROLLBAR ===== */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: #000;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #222;
+    border-radius: 3px;
+}
+
+/* ===== SHIMMER ANIMATION ===== */
+@keyframes shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+.shimmer {
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.05), transparent);
+    background-size: 200% 100%;
+    animation: shimmer 3s infinite;
+}
+
+/* ===== FLOAT ANIMATION ===== */
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.float-anim {
+    animation: float 4s ease-in-out infinite;
+}
+
+/* ===== COUNTDOWN PULSE ===== */
+@keyframes countdown-pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.6;
+    }
+}
+
+.countdown-num {
+    animation: countdown-pulse 1s ease-in-out infinite;
+}
+
+/* ===== PROMO BADGE ===== */
+.promo-badge {
+    background: linear-gradient(135deg, #ff4500, #ff6b35);
+    animation: pulse-glow 2s ease-in-out infinite;
+    box-shadow: 0 0 20px rgba(255, 69, 0, 0.3);
+}
+
+/* ===== PRICE STRIKETHROUGH ===== */
+.price-old {
+    position: relative;
+    color: #888;
+}
+
+.price-old::after {
+    content: '';
+    position: absolute;
+    left: -4px;
+    right: -4px;
+    top: 50%;
+    height: 2px;
+    background: #ff4500;
+    transform: rotate(-8deg);
+}
